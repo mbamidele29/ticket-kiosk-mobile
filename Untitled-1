@@ -1,0 +1,46 @@
+
+SizedBox(
+              width: 200.0,
+              height: 100.0,
+              child: Shimmer.fromColors(
+                baseColor: Colors.red,
+                highlightColor: Colors.yellow,
+                child: Text(
+                  'Shimmer',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 40.0,
+                    fontWeight:
+                    FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+            Shimmer.fromColors(
+              baseColor: Colors.red,
+              highlightColor: Colors.black,
+              period: Duration(seconds: 2),
+              child: Container(
+                width: 200,
+                height: 100,
+                decoration: BoxDecoration(
+                  color: Colors.white
+                ),
+              ),
+            )
+
+
+
+
+
+
+
+            import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
+import 'package:ticket_kiosk/core/entities/user.dart';
+import 'package:ticket_kiosk/core/entities/failure.dart';
+
+abstract class IAuthRepository {
+  Future<Either<Failure, User>> resetPassword({@required String email});
+  Future<Either<Failure, User>> login({@required String email, @required String password});
+  Future<Either<Failure, User>> register({@required String email, @required String firstName, @required String lastName, @required String phoneNumber, @required String password, @required String passwordConfirmation});
